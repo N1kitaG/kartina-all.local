@@ -1,0 +1,39 @@
+User-agent: Googlebot
+Disallow: /*?_openstat
+Disallow: /*?gclid=
+Disallow: /*?yclid=
+Disallow: /*?ymclid=
+Disallow: /*utm_source=
+Disallow: /*from=adwords
+Disallow: /*?cid=
+Disallow: /*?frommarket=
+Disallow: /*?*
+Disallow: /admin
+
+User-agent: *
+Disallow: /*?_openstat
+Disallow: /*?gclid=
+Disallow: /*?yclid=
+Disallow: /*?ymclid=
+Disallow: /*utm_source=
+Disallow: /*from=adwords
+Disallow: /*?cid=
+Disallow: /*?frommarket=
+Disallow: /*?*
+Disallow: /admin
+Crawl-delay: 2
+
+User-agent: Yandex
+Disallow: /*?_openstat
+Disallow: /*?gclid=
+Disallow: /*?yclid=
+Disallow: /*?ymclid=
+Disallow: /*utm_source=
+Disallow: /*from=adwords
+Disallow: /*?cid=
+Disallow: /*?frommarket=
+Disallow: /*?*
+Disallow: /admin
+
+Host: kartina-rus.ru
+Sitemap: http://kartina-rus.ru/sitemap.xml
