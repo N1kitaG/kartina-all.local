@@ -6354,6 +6354,7 @@ div.about-slider a img{
 .u-right-header-top-phone {
     width: 220px;
     position: relative;
+    padding: 0 10px;
     top: -9px;
 }
 
@@ -6427,6 +6428,9 @@ div.about-slider a img{
     z-index: 999;
     /*border: 1px solid gray;*/
     display:none;
+    -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.31);
+    -moz-box-shadow: 0 0 15px rgba(0, 0, 0, 0.31);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.31);
 
 }
 .header-fixed-wrapper{
@@ -6442,6 +6446,12 @@ div.about-slider a img{
 
 .phonefix{
     top: auto;
+    padding: 0 10px;
+}
+
+.search-widget{
+    width: 400px;
+
 }
 
 #fixsearch{
@@ -6450,6 +6460,7 @@ div.about-slider a img{
     flex-direction: row;
     height: 40px;
     position: relative;
+    max-width: 300px;
 }
 
 #fixsearch button{
@@ -6463,9 +6474,83 @@ div.about-slider a img{
 }
 
 #fixsearch input{
+
     padding: 0 0 0 10px;
     height: 100%;
 }
+
+#topsearch{
+    margin: 0 10px 10px 10px;
+    display: flex;
+    flex-direction: row;
+    height: 40px;
+    position: relative;
+}
+
+#topsearch button{
+    position: absolute;
+    background: url('http://t10.kartina-rus.ru/images/search.png') no-repeat center;
+    background-size: 60%;
+    width: 40px;
+    height: 40px;
+    right: 0;
+
+}
+
+#topsearch input{
+    padding: 0 0 0 10px;
+    height: 100%;
+}
+
+#mobile{
+    display: none;
+    margin: 0 20px;
+    width: auto;
+}
+
+.f-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.social-block{
+    padding: 0 20px;
+}
+
+.f-row .social img {
+    margin: 5px;
+    transition: 200ms;
+    cursor: pointer;
+}
+.f-row .social img:hover {
+    transform: scale(1.1);
+}
+
+@media screen and (max-width: 880px) {
+    #topsearch{
+        display: none;
+    }
+    .social-block{
+        display:none;
+    }
+}
+
+
+
+@media screen and (max-width: 520px) {
+    #mobile{
+        display:flex;
+        justify-content: center;
+        align-items: center;
+    }
+    #desktop{
+        display:none;
+    }
+}
+
+
 
 
 /*  ----------------------------- fixed header -------------------------------------- */

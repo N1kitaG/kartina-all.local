@@ -893,12 +893,16 @@ $(function () {
     } else {
         $('.header-fixed').hide();
     }
-    $(window).on('scroll', function () {
-        if ($(window).scrollTop() > 200){
-            $('.header-fixed').slideDown(100);
-        } else {
-            $('.header-fixed').slideUp(100);
-        }
-    })
+
 });
+
+$(window).on('scroll', function () {
+    if ($(window).scrollTop() > 200){
+        $('.header-fixed').slideDown(100);
+    } else {
+        $('.header-fixed').slideUp(100);
+    }
+});
+
+
 

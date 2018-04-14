@@ -214,11 +214,26 @@ if ($variant === 'v0') {
             </form>
         </div>
 
-        <div class="u-right-header-top-item" style="display:block">
+        <div class="f-row social-block">
+            <div class="social f-row">
+                <a id="inst" href="https://www.instagram.com/kartina_rus" target="_blank"><img src="https://mrholst.ru/portret/img/inst.png" height="30"  width="30" alt="instagram"></a>
+                <a id="vk" href="https://vk.com/kartinarusss" target="_blank"><img src="https://mrholst.ru/portret/img/vk.png" height="30"  width="30" alt="vkontakte"></a>
+                <a id="ok" href="https://ok.ru/kartinii" target="_blank"><img src="https://mrholst.ru/portret/img/ok.png" height="30"  width="30" alt="odnoklassniki"></a>
+<!--                <a id="face" href="https://www.facebook.com/%D0%9F%D0%BE%D1%80%D1%82%D1%80%D0%B5%D1%82-%D0%B8%D0%B7-%D0%B2%D0%B0%D1%88%D0%B8%D1%85-%D1%84%D0%BE%D1%82%D0%BE-%D0%BD%D0%B0-%D1%85%D0%BE%D0%BB%D1%81%D1%82%D0%B5-106747669820951/" target="_blank"><img src="https://mrholst.ru/portret/img/fb.png" height="30"  width="30" alt="facebook"></a>-->
+
+            </div>
+        </div>
+
+        <div class="u-right-header-top-item" id="desktop">
             <div class="u-right-header-top-phone phonefix">
                 <a href="tel:<?= $siteTel['Russia']['full'] ?>"><span><?= $siteTel['Russia']['country'] ?> <?= $siteTel['Russia']['city'] ?></span> <?= $siteTel['Russia']['number'] ?>
                 </a>
                 <p>Бесплатный звонок по России</p>
+            </div>
+        </div>
+        <div id="mobile" class="u-right-header-top-item">
+            <div class="u-right-header-top-call">
+                <a href="tel:88007075359" class="u-right-header-top-call-btn needhelp">Бесплатная консультация</a>
             </div>
         </div>
     </div>
@@ -242,6 +257,12 @@ if ($variant === 'v0') {
                             Звоните в любой день с 9:00 до 21:00
                             Заказывайте через сайт в любое время суток!
                         </div>
+                    </div>
+                    <div class="search-widget">
+                        <form id="topsearch" action="/search/">
+                            <input name="q" placeholder="Поиск по сайту">
+                            <button type="submit" class="btn btn-dark-pink" style="border:none;">.</button>
+                        </form>
                     </div>
                     <div class="u-right-header-top-item hide-1200">
                         <div class="u-right-header-top-call">
