@@ -109,6 +109,7 @@
                 var c = 0;
                 var c1 = 0;
                 var c2 = 0;
+                var c3 = 0;
 
                 while (i < utftext.length) {
 
@@ -883,4 +884,21 @@
     });
 })(jQuery);
 
+
+
+$(function () {
+    // alert('asd');
+    if ($(window).scrollTop() > 200){
+        $('.header-fixed').show();
+    } else {
+        $('.header-fixed').hide();
+    }
+    $(window).on('scroll', function () {
+        if ($(window).scrollTop() > 200){
+            $('.header-fixed').slideDown(100);
+        } else {
+            $('.header-fixed').slideUp(100);
+        }
+    })
+});
 

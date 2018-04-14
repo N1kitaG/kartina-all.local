@@ -12,11 +12,16 @@ use yii\widgets\ActiveForm;
     <?= Html::button('Найти', ['type' => 'submit','class'=>'btn btn-dark-pink','style'=>'border:none; width: 100%;']) ?>
     <?php ActiveForm::end(); ?>
     -->
-    <form action="/search/">
-        <input name="q" placeholder="Поиск по сайту">
-        <button type="submit" class="btn btn-dark-pink" style="border:none; width: 100%;">Найти</button>
+
+<!--
+<form action="/search/">
+       <input name="q" placeholder="Поиск по сайту">
+       <button type="submit" class="btn btn-dark-pink" style="border:none; width: 100%;">Найти</button>
     </form>
+
+    -->
 </div>
+
 <div class="ipad-widget">
     <div class="widget-title" style="text-align: center">Регистрация<br>на розыгрыш iPad</div>
     <a href="#ipad-form" class="btn btn-dark-pink fancybox">Регистрация</a>

@@ -204,6 +204,27 @@ if ($variant === 'v0') {
 </head>
 <body data-variant="<?= ABTEST_VARIANT ?>">
 <?php $this->beginBody() ?>
+
+<div class="header-fixed">
+    <div class="header-fixed-wrapper">
+        <div class="search-widget">
+            <form id="fixsearch" action="/search/">
+                <input name="q" placeholder="Поиск по сайту">
+                <button type="submit" class="btn btn-dark-pink" style="border:none;">.</button>
+            </form>
+        </div>
+
+        <div class="u-right-header-top-item" style="display:block">
+            <div class="u-right-header-top-phone phonefix">
+                <a href="tel:<?= $siteTel['Russia']['full'] ?>"><span><?= $siteTel['Russia']['country'] ?> <?= $siteTel['Russia']['city'] ?></span> <?= $siteTel['Russia']['number'] ?>
+                </a>
+                <p>Бесплатный звонок по России</p>
+            </div>
+        </div>
+    </div>
+
+</div>
+
 <div class="main-wrapper">
     <header class="site-header clearfix">
         <div class="u-wrapper clearfix">
@@ -297,9 +318,16 @@ if ($variant === 'v0') {
             </div>
         </nav>
     </header>
+
+
+
     <main>
+
         <div class="wrapper">
             <div class="content-header clearfix">
+
+
+
                 <!--<div class="sale-slider">
                     <div class="slider-wrapper">
                         <div class="saleslide one">123</div>
@@ -309,6 +337,8 @@ if ($variant === 'v0') {
                         <div class="saleslide five">123</div>
                     </div>
                 </div>-->
+
+
 <!--                <div class="timer-block">-->
 <!--                    <style>-->
 <!---->
