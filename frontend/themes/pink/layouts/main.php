@@ -258,7 +258,7 @@ if ($variant === 'v0') {
                             Заказывайте через сайт в любое время суток!
                         </div>
                     </div>
-                    <div class="search-widget">
+                    <div id="static-search" class="search-widget">
                         <form id="topsearch" action="/search/">
                             <input name="q" placeholder="Поиск по сайту">
                             <button type="submit" class="btn btn-dark-pink" style="border:none;">.</button>

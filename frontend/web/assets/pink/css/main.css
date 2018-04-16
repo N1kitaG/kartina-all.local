@@ -6422,22 +6422,17 @@ div.about-slider a img{
 .header-fixed{
     padding: 0 20px;
     position: fixed;
-
     background-color: white;
     width: 100%;
     z-index: 999;
-    /*border: 1px solid gray;*/
-    /*display:none;*/
-    opacity: 0;
     -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.31);
     -moz-box-shadow: 0 0 15px rgba(0, 0, 0, 0.31);
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.31);
     top: -100px;
+    transition: 0.2s;
 }
 
 .headershow{
-    /*display: block;*/
-    opacity: 1;
     top: 0;
 }
 
@@ -6512,7 +6507,7 @@ div.about-slider a img{
 
 #mobile{
     display: none;
-    margin: 0 20px;
+    margin: 0 10px;
     width: auto;
 }
 
@@ -6524,7 +6519,7 @@ div.about-slider a img{
 }
 
 .social-block{
-    padding: 0 20px;
+    padding: 0 0 0 10px;
 }
 
 .f-row .social img {
@@ -6536,36 +6531,44 @@ div.about-slider a img{
     transform: scale(1.1);
 }
 
-.page-content{
-    /*display:none;*/
-}
+
 
 @media screen and (max-width: 880px) {
-    #topsearch{
+    #static-search{
         display: none;
     }
     .social-block{
+        /*display:none;*/
+    }
+    #desktop{
         display:none;
     }
-}
-
-
-
-@media screen and (max-width: 520px) {
     #mobile{
         display:flex;
         justify-content: center;
         align-items: center;
     }
-    #desktop{
-        display:none;
+}
+
+@media screen and (max-width: 660px) {
+    .u-right-header-top-call-btn {
+        text-indent: -99999999px;
+        width: 50px;
+        height: 47px;
+        position: relative;
+        top: -1px;
+        background: url(../img/tel.png) center no-repeat #984b99;
     }
+}
+@media screen and (max-width: 520px) {
+
+
 }
 
 
 
 
-/*  ----------------------------- fixed header -------------------------------------- */
+/*  ----------------------------- fixed header end -------------------------------------- */
 
 .hide-880 {
     display: none;
