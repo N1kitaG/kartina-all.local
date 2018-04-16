@@ -21,12 +21,12 @@ class PinkAsset extends AssetBundle
         'https://fonts.googleapis.com/css?family=Roboto+Slab:100,300,400,700&amp;subset=cyrillic',
         //'css/normalize.min.css',
         'css/jquery.bxslider.css',
-        'css/main.css',
+        'css/main.css?v=2',
     ];
     public $js = [
-        'js/plugins.js',
+        'js/plugins.js?v=2',
         'js/vendor/jquery.bxslider.js',
-        'js/main.js',
+        'js/main.js?v=2',
     ];
     public $depends = [
         'yii\web\YiiAsset',

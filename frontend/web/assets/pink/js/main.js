@@ -1,3 +1,4 @@
+
 (function ($) {
     $(function () {
         'use strict';
@@ -885,22 +886,22 @@
 })(jQuery);
 
 
-
-$(function () {
-    // alert('asd');
-    if ($(window).scrollTop() > 200){
-        $('.header-fixed').show();
-    } else {
-        $('.header-fixed').hide();
-    }
-
-});
+//
+// $(function () {
+//     // alert('asd');
+//     if ($(window).scrollTop() > 200){
+//         $('.header-fixed').addClass('headershow');
+//     } else {
+//         $('.header-fixed').removeClass('headershow');
+//     }
+//
+// });
 
 $(window).on('scroll', function () {
     if ($(window).scrollTop() > 200){
-        $('.header-fixed').slideDown(100);
+        $('.header-fixed').addClass('headershow');
     } else {
-        $('.header-fixed').slideUp(100);
+        $('.header-fixed').removeClass('headershow');
     }
 });
 

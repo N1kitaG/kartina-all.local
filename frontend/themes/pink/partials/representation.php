@@ -691,4 +691,3 @@
     });
 </script>
 
-<!-- @TODO geolocation map centering -->
