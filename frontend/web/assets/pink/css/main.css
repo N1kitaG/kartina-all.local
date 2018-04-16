@@ -6465,14 +6465,23 @@ div.about-slider a img{
     position: relative;
     max-width: 300px;
 }
+.srchoverlay{
+    position: absolute;
+    margin: 1px;
+    height: 38px;
+    width: 38px;
+    right: 0;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0), white 45%);
+}
 
 #fixsearch button{
     position: absolute;
     background: url('http://t10.kartina-rus.ru/images/search.png') no-repeat center;
     background-size: 60%;
-    width: 40px;
+    width: 30px;
     height: 40px;
     right: 0;
+    padding: 0;
 
 }
 
@@ -6489,6 +6498,8 @@ div.about-slider a img{
     height: 40px;
     position: relative;
 }
+
+
 
 #topsearch button{
     position: absolute;

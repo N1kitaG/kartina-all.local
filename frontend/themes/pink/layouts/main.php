@@ -116,6 +116,7 @@ $items = [
         <div class="search-widget">
             <form id="fixsearch" action="/search/">
                 <input name="q" placeholder="Поиск по сайту">
+                <div class="srchoverlay"></div>
                 <button type="submit" class="btn btn-dark-pink" style="border:none;">.</button>
             </form>
         </div>
