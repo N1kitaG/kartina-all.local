@@ -6531,6 +6531,27 @@ div.about-slider a img{
     transform: scale(1.1);
 }
 
+.comment-block{
+    outline: 2px dotted #dbdbdb;
+    outline-offset: -5px;
+    border-radius: 3px;
+    padding: 15px;
+    background-color: #f8f8f8;
+    margin: 10px 0;
+}
+
+.comment-block p:first-child{
+    border-bottom: 1px solid #984b99;
+    font-family: 'Roboto Slab', serif;
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+.comment-block p{
+    margin: 0;
+}
+
+
 .sale-slider{
     background-color: gray;
 }
