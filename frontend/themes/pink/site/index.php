@@ -420,7 +420,7 @@ if ($currentPage>0) {
 </div>
 <?php if (empty(Yii::$app->request->queryParams['page'])): ?>
     <div class="page-content">
-        <?= $model->content ?>
+<!--        --><?//= $model->content ?>
     </div>
 <?php endif; ?>
 <?php $this->beginBlock('after-content'); ?>

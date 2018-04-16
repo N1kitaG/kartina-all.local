@@ -6635,6 +6635,13 @@ div.about-slider a img{
     margin: 5px 0;
 }
 
+.social-widgets{
+    display: none;
+}
+.social-widgets-title{
+    display: none;
+}
+
 
 @media screen and (max-width: 880px) {
     #static-search{
