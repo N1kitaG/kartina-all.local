@@ -349,15 +349,15 @@ if ($variant === 'v0') {
 
 
 
-                <!--<div class="sale-slider">
+                <div class="sale-slider">
                     <div class="slider-wrapper">
-                        <div class="saleslide one">123</div>
-                        <div class="saleslide two">123</div>
-                        <div class="saleslide three">123</div>
-                        <div class="saleslide four">123</div>
-                        <div class="saleslide five">123</div>
+                        <div class="saleslide one"><img src="/assets/pink/img/slider/index1.jpg" width="100%" alt=""></div>
+                        <div class="saleslide two"><img src="/assets/pink/img/slider/index2.jpg" width="100%" alt=""></div>
+                        <div class="saleslide three"><img src="/assets/pink/img/slider/index3.jpg" width="100%" alt=""></div>
+<!--                        <div class="saleslide four">123</div>-->
+<!--                        <div class="saleslide five">123</div>-->
                     </div>
-                </div>-->
+                </div>
 
 
 <!--                <div class="timer-block">-->

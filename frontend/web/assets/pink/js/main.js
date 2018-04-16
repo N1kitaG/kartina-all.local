@@ -1,3 +1,14 @@
+$('.slider-wrapper').bxSlider({
+    controls: true,
+    auto: true,
+    stopAutoOnClick: true,
+    pause: 5000,
+    randomStart: true,
+    preloadImages: 'visible',
+    onSliderLoad: function(){
+        $(".saleslide").show();
+    }
+});
 
 (function ($) {
     $(function () {
@@ -896,6 +907,7 @@
 //     }
 //
 // });
+
 
 $(window).on('scroll', function () {
     if ($(window).scrollTop() > 200){

@@ -5526,8 +5526,8 @@ h5 {
 }
 
 .bx-controls-direction a:hover {
-    background: #984b99;
-    color: #ffffff;
+    /*background: #984b99;*/
+    /*color: #ffffff;*/
 }
 
 .bx-controls-direction a .icon {
@@ -6531,6 +6531,88 @@ div.about-slider a img{
     transform: scale(1.1);
 }
 
+.sale-slider{
+    background-color: gray;
+}
+.saleslide{
+    display: none;
+    background-color: aquamarine;
+    /*min-height: 200px;*/
+}
+
+.one{
+    /*background: url('../img/slider/index1.jpg') center no-repeat;*/
+    /*background-size: contain;*/
+}
+
+.bx-wrapper{
+    padding: 0 ;
+    margin: 0 0 30px 0;
+}
+
+.bx-wrapper .bx-prev{
+
+}
+
+.bx-wrapper .bx-controls-direction a {
+    outline: none;
+    border: none;
+    transition: 0.1s;
+    z-index: 99;
+}
+
+.bx-wrapper .bx-controls-direction a i{
+    display:none;
+}
+
+.bx-prev, .bx-next{
+    margin: 0 10px;
+    outline: none;
+}
+
+.callback-form {
+    margin-bottom: 30px;
+}
+
+.callback-form h3{
+    text-align: center;
+}
+
+.callback-form form{
+    margin: 10px auto;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+.callback-form input{
+    padding: 5px;
+    margin: 5px 0;
+    min-height: 25px;
+    background-color: #f7f7f7;
+    border: none;
+    border-bottom: 2px solid #984b99;
+    outline: none;
+}
+.callback-form textarea{
+    padding: 5px;
+    margin: 5px 0;
+    background-color: #f9f9f9;
+    border: none;
+    border-bottom: 2px solid #984b99;
+    outline: none;
+}
+
+.callback-form button{
+    background-color: #984b99;
+    color: white;
+    border: none;
+    font-size: 14px;
+    font-family: 'Roboto Slab', serif;
+    font-weight: bold;
+    padding: 10px;
+    margin: 5px 0;
+}
 
 
 @media screen and (max-width: 880px) {

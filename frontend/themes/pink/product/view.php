@@ -205,6 +205,26 @@ $alt = ($model->meta_h1) ? $model->meta_h1 : $this->title;
             </div>
         </div>
     </div>
+    <?php if(count($comments) > 0): ?>
+        <div class="callback">
+            <h3>Отзывы</h3>
+            <?php foreach ($comments as $comment) ?>
+                <div class="comment-block">
+                    <p><?= $comment['name'] ?> <b><?= $comment['date'] ?></b></p>
+                    <p><?= $comment['text'] ?></p>
+                </div>
+            <?php ?>
+        </div>
+    <?php endif;?>
+    <div class="callback-form">
+        <h3>Оставить отзыв</h3>
+        <?= Html::beginForm('', 'post'); ?>
+            <?= Html::textInput('name', '', ['required' => true, 'placeholder' => 'Введите ваше имя']); ?>
+            <?= Html::textInput('email', '', ['required' => true, 'placeholder' => 'Введите ваш email']); ?>
+            <?= Html::textarea('message', '', ['required' => true, 'placeholder' => 'Ваш комментарий']); ?>
+            <?= Html::submitButton('Отправить'); ?>
+        <?= Html::endForm(); ?>
+    </div>
     <div class="item-page-row clearfix">
         <div class="block-border fl">
             <div class="clearfix">
