@@ -385,7 +385,7 @@ $items = [
             </div>
             <div class="show-960" style="padding-bottom: 5px">
                 <div class="responsive-menu-button"><a class="btn btn-dark-pink" href="#" style=""><span
-                                class="responsive-menu-icon"><span></span><span></span><span></span></span> <? if ($variant === 'v0'): ?> Смотреть все категории <? else: ?> Главное меню <? endif; ?>
+                                class="responsive-menu-icon"><span></span><span></span><span></span></span>  Главное меню
                     </a></div>
                 <div class="responsive-menu-2" style="display: none">
                     <div class="first clearfix">
