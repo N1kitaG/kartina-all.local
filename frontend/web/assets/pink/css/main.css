@@ -6670,6 +6670,12 @@ div.about-slider a img{
 .site-header .main-menu{
     margin: 0;
 }
+.site-header .main-menu ul{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
 
 #header-sm{
     margin-bottom: 10px;

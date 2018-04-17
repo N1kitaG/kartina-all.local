@@ -8,15 +8,20 @@ $category = isset($category) ? $category : new Category();
 
 $items = [
     [
+        'label' => 'Природа',
+        'url' => Url::to(['/category/seoview', 'slug' => 'modulnye-kartiny/priroda']) . '#tovar',
+        'active' => (Yii::$app->controller->id == 'category' and Yii::$app->controller->actionParams['slug'] == 'modulnye-kartiny/priroda'),
+    ],
+    [
         'label' => 'Цветы',
         'url' => Url::to(['/category/seoview', 'slug' => 'modulnye-kartiny/cvety']) . '#tovar',
         'active' => (Yii::$app->controller->id == 'category' and Yii::$app->controller->actionParams['slug'] == 'modulnye-kartiny/cvety'),
 
     ],
     [
-        'label' => 'Природа, пейзажи',
-        'url' => Url::to(['/category/seoview', 'slug' => 'modulnye-kartiny/priroda']) . '#tovar',
-        'active' => (Yii::$app->controller->id == 'category' and Yii::$app->controller->actionParams['slug'] == 'modulnye-kartiny/priroda'),
+        'label' => 'Для детей',
+        'url' => Url::to(['/category/seoview', 'slug' => 'children']) . '#tovar',
+        'active' => (Yii::$app->controller->id == 'category' and Yii::$app->controller->actionParams['slug'] == 'children'),
     ],
     [
         'label' => 'Абстракция',
@@ -24,44 +29,14 @@ $items = [
         'active' => (Yii::$app->controller->id == 'category' and Yii::$app->controller->actionParams['slug'] == 'modulnye-kartiny/abstrakciya'),
     ],
     [
-        'label' => 'Для кухни',
-        'url' => Url::to(['/category/seoview', 'slug' => 'modulnye-kartiny/kuhnya']) . '#tovar',
-        'active' => (Yii::$app->controller->id == 'category' and Yii::$app->controller->actionParams['slug'] == 'modulnye-kartiny/kuhnya'),
-    ],
-    [
-        'label' => 'Города',
-        'url' => Url::to(['/category/seoview', 'slug' => 'modulnye-kartiny/goroda']) . '#tovar',
-        'active' => (Yii::$app->controller->id == 'category' and Yii::$app->controller->actionParams['slug'] == 'modulnye-kartiny/goroda'),
-    ],
-    [
-        'label' => 'Животные',
-        'url' => Url::to(['/category/seoview', 'slug' => 'modulnye-kartiny/zhivotnye']) . '#tovar',
-        'active' => (Yii::$app->controller->id == 'category' and Yii::$app->controller->actionParams['slug'] == 'modulnye-kartiny/zhivotnye'),
-    ],
-    [
         'label' => 'VIP композиции',
         'url' => Url::to(['/category/seoview', 'slug' => 'modulnye-kartiny/vip']) . '#tovar',
         'active' => (Yii::$app->controller->id == 'category' and Yii::$app->controller->actionParams['slug'] == 'modulnye-kartiny/vip'),
     ],
     [
-        'label' => 'Картины ручной работы',
-        'url' => Url::to(['/category/seoview', 'slug' => 'modulnye-kartiny/ruchnoy-raboty']) . '#tovar',
-        'active' => (Yii::$app->controller->id == 'category' and Yii::$app->controller->actionParams['slug'] == 'modulnye-kartiny/ruchnoy-raboty'),
-    ],
-    [
-        'label' => 'НОВИНКИ',
-        'url' => Url::to(['/category/seoview', 'slug' => 'modulnye-kartiny/modules-novelty']) . '#tovar',
-        'active' => (Yii::$app->controller->id == 'category' and Yii::$app->controller->actionParams['slug'] == 'modulnye-kartiny/modules-novelty'),
-    ],
-    [
-        'label' => 'Вертикальные картины',
-        'url' => Url::to(['/category/seoview', 'slug' => 'vertical']) . '#tovar',
-        'active' => (Yii::$app->controller->id == 'category' and Yii::$app->controller->actionParams['slug'] == 'vertical'),
-    ],
-    [
-        'label' => 'Триптих',
-        'url' => Url::to(['/category/seoview', 'slug' => 'triptih']) . '#tovar',
-        'active' => (Yii::$app->controller->id == 'category' and Yii::$app->controller->actionParams['slug'] == 'triptih'),
+        'label' => 'Для кухни',
+        'url' => Url::to(['/category/seoview', 'slug' => 'modulnye-kartiny/kuhnya']) . '#tovar',
+        'active' => (Yii::$app->controller->id == 'category' and Yii::$app->controller->actionParams['slug'] == 'modulnye-kartiny/kuhnya'),
     ],
     [
         'label' => 'Для кафе',
@@ -69,27 +44,10 @@ $items = [
         'active' => (Yii::$app->controller->id == 'category' and Yii::$app->controller->actionParams['slug'] == 'cafe'),
     ],
     [
-        'label' => 'Для отелей',
-        'url' => Url::to(['/category/seoview', 'slug' => 'hotel']) . '#tovar',
-        'active' => (Yii::$app->controller->id == 'category' and Yii::$app->controller->actionParams['slug'] == 'hotel'),
+        'label' => 'Города',
+        'url' => Url::to(['/category/seoview', 'slug' => 'modulnye-kartiny/goroda']) . '#tovar',
+        'active' => (Yii::$app->controller->id == 'category' and Yii::$app->controller->actionParams['slug'] == 'modulnye-kartiny/goroda'),
     ],
-    [
-        'label' => 'Для офиса',
-        'url' => Url::to(['/category/seoview', 'slug' => 'office']) . '#tovar',
-        'active' => (Yii::$app->controller->id == 'category' and Yii::$app->controller->actionParams['slug'] == 'office'),
-    ],
-    [
-        'label' => 'Для детей',
-        'url' => Url::to(['/category/seoview', 'slug' => 'children']) . '#tovar',
-        'active' => (Yii::$app->controller->id == 'category' and Yii::$app->controller->actionParams['slug'] == 'children'),
-    ],
-    /*
-    [
-        'label'=>'Картины в багете',
-        'url'=>Url::to(['/category/seoview','slug'=>'baguette']).'#tovar',
-        'active'=>(Yii::$app->controller->id == 'category' and Yii::$app->controller->actionParams['slug'] == 'baguette'),
-    ],
-    */
 ];
 
 if (isset($limit)) {

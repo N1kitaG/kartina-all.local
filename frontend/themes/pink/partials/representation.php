@@ -443,251 +443,468 @@
 <div class="clearfix"></div> -->
 
 
-<div id="rep-map" style="width:100%;height:400px;"></div>
+<!--<div id="rep-map" style="width:100%;height:400px;"></div>-->
+
+<div id="map" style="height:500px; max-width:800px;margin:0 auto 50px auto;"></div>
+
+<script src="https://code.jquery.com/jquery-2.2.4.js"
+        integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
+        crossorigin="anonymous"></script>
+<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU"></script>
+
+<script>
+    ymaps.ready(init);
+
+    function init() {
+        var geolocation = ymaps.geolocation,
+            myMap = new ymaps.Map('map', {
+                center: [55, 34],
+                zoom: 12
+            }, {
+                searchControlProvider: 'yandex#search'
+            });
+
+
+        geolocation.get({
+            provider: 'yandex',
+            mapStateAutoApply: true
+        }).then(function (result) {
+
+            result.geoObjects.options.set('preset', 'islands#redCircleIcon');
+            result.geoObjects.get(0).properties.set({
+                balloonContentBody: 'Мое местоположение'
+            });
+
+            myMap.geoObjects.add(result.geoObjects);
+            var pos = result.geoObjects.position;
+
+            ymaps.geocode(pos).then(function (res) {
+                var firstGeoObject = res.geoObjects.get(0);
+                console.log('Ваш город', firstGeoObject.getLocalities()[0], '?');
+            });
+
+        });
+
+        var locations =
+            '53.7120123,91.3855439;' +  //abakan
+            '64.4845156,40.7415823;' +  //archang
+            '46.3151207,48.0223989;' +  //astrax
+            '53.3339242,83.6669341;' +  //barnaul
+            '50.5939402,36.6296759;' +  //belgorod
+            '52.5418095,85.1329787;' +  //biisk
+            '48.7979108,132.9050267;' + //birobizh
+            '50.2768427,127.5130564;' + //blagoveshensk
+            '56.1459059,101.5962452;' + //biisk
+            '53.2397811,34.3281457;' +  //bryansk
+            '58.5415436,31.2687166;' +  //novgorod vel
+            '43.1448007,131.9640533;' + //vladivostok
+            '43.0346948,44.6917682;' +  //vladikavkaz
+            '56.1542355,40.4252689;' +  //vladimir
+            '48.6863036,44.4760708;' +  //volgograd
+            '47.4880741,42.1665217;' +  //volgodonsk
+            '48.8219714,44.7359535;' +  //volzchskiy
+            '59.2209898,39.9486805;' +  //vologda
+            '51.6803851,39.0762222;' +  //voronezh
+            '60.7065715,28.7481739;' +  //viborg
+            '51.9499947,85.9498581;' +  //gorno-altaysk
+            '56.1621856,43.9065586;' +  //druzhnyi
+            '55.3974741,39.045325;' +   //egoryevsk
+            '56.8885867,60.5241517;' +  //eburg
+            '49.6596216,117.3388895;' + //zabaykalsk
+            '54.5864534,55.9093387;' +  //zubovo
+            '56.9495372,40.9570423;' +  //ignatovo
+            '56.8173054,53.1972115;' +  //izhevsk
+            '52.2960711,104.3056148;' + //irkutsk
+            '56.6204123,47.8760528;' +  //yoshkar
+            '55.8460398,49.053604;' +   //kazan'
+            '54.5589276,36.2647197;' +  //kaluga
+            '55.3089029,86.1396922;' +  //kemerovo
+            '58.63814,49.592725;' +     //Kirov
+            '56.332135,36.725357;' +    //Klin
+            '50.5455355,137.0377878;' + //komsomolsk-na-amure
+            '57.7767147,40.977638;' +   //kostroma
+            '45.1084426,39.011065;' +   //krasnod
+            '56.0400344,93.0273272;' +  //krasnoyarsk
+            '51.7240762,36.1866641;' +  //kursk
+            '51.7033678,94.4884927;' +  //kizil
+            '52.6257419,39.5386167;' +  //lipetsk
+            '53.3975234,59.0227893;' +  //magnitogorsk
+            '55.6449246,49.2792354; ' + //malye kabany
+            '42.9953044,47.4533128; ' + //mahachkala
+            '55.886087,37.4930761;' +   //msk
+            '55.7395649,37.7462873;' +  //msk
+            '55.7044559,37.423814;' +   //msk
+            '55.6338133,37.6304819;' +  //msk
+            '55.8904723,37.5783269;' +  //msk
+            '69.0075298,33.0796947;' +  //murmansk
+            '55.710778,52.4594326;' +   //chelny
+            '43.476944,43.6006728; ' +  //nalchik
+            '42.8406748,132.8840014; ' +//nahodka
+            '56.6697932,124.6909036; ' +//nerungri
+            '60.9396722,76.5426795; ' + //nizhnevartovks
+            '56.2940845,43.8852721; ' + //nizhnovgorod
+            '57.9248678,59.9925283; ' + //tagiiiil
+            '53.7365757,87.1592691; ' + //novokuzhetsk
+            '44.7252512,37.7449539;  ' +//novoross
+            '55.0584505,82.9659023; ' + //novosib
+            '55.0056455,82.8773476;  ' +//novosib
+            '66.1250124,76.6835163;  ' +//n.urengoy
+            '55.848192,38.4255008; ' +  //noginsk
+            '69.4016527,88.1780282;' +  //norilsk ------------------------- ??
+            '63.2032334,75.4979684; ' + //noyabrsk
+            '45.1779346,39.0978547; ' + //oktyabrskiy
+            '55.006393,73.3812933;  ' + //omsk
+            '53.0031497,36.1440106; ' + //orel
+            '51.8550195,55.1267697; ' + //orenburg
+            '51.2280249,58.5063495;  ' +//orsk
+            '53.1219824,45.0008511;  ' +//penza
+            '57.9560029,56.2463343;   ' +//perm'
+            '61.8126985,34.3152922; ' +  //petrozavosdsk
+            '53.0806364,158.6173781; ' + //petropavlovsk-kamch
+            '57.8097648,28.3616457; ' +  //pskov
+            '44.042953,43.0164321;' +    //pyatigorsk
+            '47.2705564,39.7749988; ' +  //rostov
+            '47.240245,39.5995435; ' +   //rostov
+            '51.5007962,81.1897406; ' +  //rubcovsk
+            '58.0322217,38.8189747; ' +  //rybinsk
+            '54.6506672,39.6783199;' +  //ryazan'
+            '53.3192268,50.2964027; ' +  //samara
+            '60.0590283,30.3641567; ' +  //piter
+            '59.8454183,30.4825098; ' +  //piter
+            '54.2306997,45.1609776; ' +  //saransk
+            '51.6019062,45.94192;  ' +   //saransk
+            '64.5374947,39.8071603; ' + //severodvinsk
+            '56.6561022,84.8204306; ' + //seversk
+            '54.9390494,37.4000967;  ' + //serpuchov
+            '54.7947744,32.0579357;  ' + //smolensk
+            '43.6087483,39.7410879;  ' + //sochi
+            '45.0531057,42.0195337; ' +  //stavropol
+            '51.3236283,37.8827978;' +  //staryi oskol
+            '53.6406948,55.9581627;  ' +//sterlitamak
+            '61.2752434,73.3551303; ' + //surgut
+            '61.662403,50.8727613; ' +  //syktyvkar
+            '52.6845151,41.4599036; ' + //tambov
+            '56.8305552,35.9120077; ' + //tver'
+            '53.4812621,49.4862208;  ' +//tolyatti
+            '56.5201523,85.0203629;' +  //tomsk
+            '54.1839764,37.5158962;' +  //tula
+            '57.1309424,65.6034875;' +  //tumen'
+            '51.8387344,107.644425; ' + //ulanude
+            '54.3297685,48.3605915; ' + //ulyanovsk
+            '43.7934325,131.9629973; ' + //ussuriisk
+            '63.5425142,53.7544621; ' + //uxta
+            '48.4865845,135.115533; ' + //xabarovsk
+            '61.0028606,69.0169291; ' + //xanty-mansy
+            '60.9703647,69.0268561;  ' +//hantymansiysk
+            '55.1207638,61.507935;' +  //chelyab
+            '55.2422931,61.413975; ' + //chelyab
+            '59.1308595,37.9601103; ' +//cherepovets
+            '52.0499816,113.4469828; ' +//chita
+            '47.7123186,40.2317344; ' + //shackhty
+            '46.3116302,44.2935603; ' + //elista
+            '47.0022178,142.7325237; ' + //yuzhno-sakhalinsk
+            '62.0425469,129.7216466;' + //yakutsk
+            '57.5627914,39.944268;' //yaroslavl
+            // '40.1510653,43.7632018; ' + //tairov -----------------??
+            // '52.1295144,23.7781819;  ' + //brest
+            // '55.2007231,30.2496646; ' + //vitebsk
+            // '52.4642502,30.9961848;' + //gomel
+            // '53.9200208,27.702755; ' + //minsk
+            // '53.8490291,30.3794928;  ' +//mogilev
+            // '53.8479229,22.8633301; ' + //chehovshina
+            // '42.8549995,74.6638036;  ' +//bishkek
+            // '51.1848401,71.312866; ' + //astana
+            // '47.0968448,51.8967667; ' +
+            // '43.4903615,77.0041818;  ' +
+            // '46.8500171,74.9013066; ' +
+            // '47.8081747,67.7210162; ' +
+            // '53.2739745,69.393956; ' +
+            // '53.2087811,63.5929897; ' +
+            // '44.8303344,65.5332483;  ' +
+            // '52.2829048,76.9361656;  ' +
+            // '54.8739717,69.0904084; ' +
+            // '50.437435,80.2570256;  ' +
+            // '45.0194401,78.3799347; ' +
+            // '42.9106775,71.3235513;  ' +
+            // '51.2028133,51.3712568;  ' +
+            // '49.966677,82.4660735;  ' +
+            // '42.341926,69.5197652; ' +
+            // '51.7262068,75.2493935;'
+        ;
+        var parsed = locations.split(';');
+
+        var marker, i;
+
+        for (i = 0; i < parsed.length; i++) {
+            var cord = parsed[i].split(',');
+            var x = parseFloat(cord[0]);
+            var y = parseFloat(cord[1]);
+            myMap.geoObjects.add( new ymaps.Placemark([x, y], {
+                balloonContent: ''
+            }, {
+                preset: 'islands#dotIcon',
+                iconColor: 'darkred'
+            }));
+        }
+
+
+
+        function createPlacemark(coords) {
+            return new ymaps.Placemark(coords, {
+                iconCaption: 'поиск...'
+            }, {
+                preset: 'islands#violetDotIconWithCaption',
+                draggable: true
+            });
+        }
+
+
+    }
+</script>
 
 <div id="parser"></div>
 <!--<button onclick="getLocation()">Try It</button>-->
 
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCaR8iUcp_WPtwaK3gAxcYlztwA9cn6mSQ"></script>
-
-<script>
-    var locations =
-        '53.7120123,91.3855439;' +  //abakan
-        '64.4845156,40.7415823;' +  //archang
-        '46.3151207,48.0223989;' +  //astrax
-        '53.3339242,83.6669341;' +  //barnaul
-        '50.5939402,36.6296759;' +  //belgorod
-        '52.5418095,85.1329787;' +  //biisk
-        '48.7979108,132.9050267;' + //birobizh
-        '50.2768427,127.5130564;' + //blagoveshensk
-        '56.1459059,101.5962452;' + //biisk
-        '53.2397811,34.3281457;' +  //bryansk
-        '58.5415436,31.2687166;' +  //novgorod vel
-        '43.1448007,131.9640533;' + //vladivostok
-        '43.0346948,44.6917682;' +  //vladikavkaz
-        '56.1542355,40.4252689;' +  //vladimir
-        '48.6863036,44.4760708;' +  //volgograd
-        '47.4880741,42.1665217;' +  //volgodonsk
-        '48.8219714,44.7359535;' +  //volzchskiy
-        '59.2209898,39.9486805;' +  //vologda
-        '51.6803851,39.0762222;' +  //voronezh
-        '60.7065715,28.7481739;' +  //viborg
-        '51.9499947,85.9498581;' +  //gorno-altaysk
-        '56.1621856,43.9065586;' +  //druzhnyi
-        '55.3974741,39.045325;' +   //egoryevsk
-        '56.8885867,60.5241517;' +  //eburg
-        '49.6596216,117.3388895;' + //zabaykalsk
-        '54.5864534,55.9093387;' +  //zubovo
-        '56.9495372,40.9570423;' +  //ignatovo
-        '56.8173054,53.1972115;' +  //izhevsk
-        '52.2960711,104.3056148;' + //irkutsk
-        '56.6204123,47.8760528;' +  //yoshkar
-        '55.8460398,49.053604;' +   //kazan'
-        '54.5589276,36.2647197;' +  //kaluga
-        '55.3089029,86.1396922;' +  //kemerovo
-        '58.63814,49.592725;' +     //Kirov
-        '56.332135,36.725357;' +    //Klin
-        '50.5455355,137.0377878;' + //komsomolsk-na-amure
-        '57.7767147,40.977638;' +   //kostroma
-        '45.1084426,39.011065;' +   //krasnod
-        '56.0400344,93.0273272;' +  //krasnoyarsk
-        '51.7240762,36.1866641;' +  //kursk
-        '51.7033678,94.4884927;' +  //kizil
-        '52.6257419,39.5386167;' +  //lipetsk
-        '53.3975234,59.0227893;' +  //magnitogorsk
-        '55.6449246,49.2792354; ' + //malye kabany
-        '42.9953044,47.4533128; ' + //mahachkala
-        '55.886087,37.4930761;' +   //msk
-        '55.7395649,37.7462873;' +  //msk
-        '55.7044559,37.423814;' +   //msk
-        '55.6338133,37.6304819;' +  //msk
-        '55.8904723,37.5783269;' +  //msk
-        '69.0075298,33.0796947;' +  //murmansk
-        '55.710778,52.4594326;' +   //chelny
-        '43.476944,43.6006728; ' +  //nalchik
-        '42.8406748,132.8840014; ' +//nahodka
-        '56.6697932,124.6909036; ' +//nerungri
-        '60.9396722,76.5426795; ' + //nizhnevartovks
-        '56.2940845,43.8852721; ' + //nizhnovgorod
-        '57.9248678,59.9925283; ' + //tagiiiil
-        '53.7365757,87.1592691; ' + //novokuzhetsk
-        '44.7252512,37.7449539;  ' +//novoross
-        '55.0584505,82.9659023; ' + //novosib
-        '55.0056455,82.8773476;  ' +//novosib
-        '66.1250124,76.6835163;  ' +//n.urengoy
-        '55.848192,38.4255008; ' +  //noginsk
-        '69.4016527,88.1780282;' +  //norilsk ------------------------- ??
-        '63.2032334,75.4979684; ' + //noyabrsk
-        '45.1779346,39.0978547; ' + //oktyabrskiy
-        '55.006393,73.3812933;  ' + //omsk
-        '53.0031497,36.1440106; ' + //orel
-        '51.8550195,55.1267697; ' + //orenburg
-        '51.2280249,58.5063495;  ' +//orsk
-        '53.1219824,45.0008511;  ' +//penza
-        '57.9560029,56.2463343;   ' +//perm'
-        '61.8126985,34.3152922; ' +  //petrozavosdsk
-        '53.0806364,158.6173781; ' + //petropavlovsk-kamch
-        '57.8097648,28.3616457; ' +  //pskov
-        '44.042953,43.0164321;' +    //pyatigorsk
-        '47.2705564,39.7749988; ' +  //rostov
-        '47.240245,39.5995435; ' +   //rostov
-        '51.5007962,81.1897406; ' +  //rubcovsk
-        '58.0322217,38.8189747; ' +  //rybinsk
-        '54.6506672,39.6783199;' +  //ryazan'
-        '53.3192268,50.2964027; ' +  //samara
-        '60.0590283,30.3641567; ' +  //piter
-        '59.8454183,30.4825098; ' +  //piter
-        '54.2306997,45.1609776; ' +  //saransk
-        '51.6019062,45.94192;  ' +   //saransk
-        '64.5374947,39.8071603; ' + //severodvinsk
-        '56.6561022,84.8204306; ' + //seversk
-        '54.9390494,37.4000967;  ' + //serpuchov
-        '54.7947744,32.0579357;  ' + //smolensk
-        '43.6087483,39.7410879;  ' + //sochi
-        '45.0531057,42.0195337; ' +  //stavropol
-        '51.3236283,37.8827978;' +  //staryi oskol
-        '53.6406948,55.9581627;  ' +//sterlitamak
-        '61.2752434,73.3551303; ' + //surgut
-        '61.662403,50.8727613; ' +  //syktyvkar
-        '52.6845151,41.4599036; ' + //tambov
-        '56.8305552,35.9120077; ' + //tver'
-        '53.4812621,49.4862208;  ' +//tolyatti
-        '56.5201523,85.0203629;' +  //tomsk
-        '54.1839764,37.5158962;' +  //tula
-        '57.1309424,65.6034875;' +  //tumen'
-        '51.8387344,107.644425; ' + //ulanude
-        '54.3297685,48.3605915; ' + //ulyanovsk
-        '43.7934325,131.9629973; ' + //ussuriisk
-        '63.5425142,53.7544621; ' + //uxta
-        '48.4865845,135.115533; ' + //xabarovsk
-        '61.0028606,69.0169291; ' + //xanty-mansy
-        '60.9703647,69.0268561;  ' +//hantymansiysk
-        '55.1207638,61.507935;' +  //chelyab
-        '55.2422931,61.413975; ' + //chelyab
-        '59.1308595,37.9601103; ' +//cherepovets
-        '52.0499816,113.4469828; ' +//chita
-        '47.7123186,40.2317344; ' + //shackhty
-        '46.3116302,44.2935603; ' + //elista
-        '47.0022178,142.7325237; ' + //yuzhno-sakhalinsk
-        '62.0425469,129.7216466;' + //yakutsk
-        '57.5627914,39.944268;' //yaroslavl
-        // '40.1510653,43.7632018; ' + //tairov -----------------??
-        // '52.1295144,23.7781819;  ' + //brest
-        // '55.2007231,30.2496646; ' + //vitebsk
-        // '52.4642502,30.9961848;' + //gomel
-        // '53.9200208,27.702755; ' + //minsk
-        // '53.8490291,30.3794928;  ' +//mogilev
-        // '53.8479229,22.8633301; ' + //chehovshina
-        // '42.8549995,74.6638036;  ' +//bishkek
-        // '51.1848401,71.312866; ' + //astana
-        // '47.0968448,51.8967667; ' +
-        // '43.4903615,77.0041818;  ' +
-        // '46.8500171,74.9013066; ' +
-        // '47.8081747,67.7210162; ' +
-        // '53.2739745,69.393956; ' +
-        // '53.2087811,63.5929897; ' +
-        // '44.8303344,65.5332483;  ' +
-        // '52.2829048,76.9361656;  ' +
-        // '54.8739717,69.0904084; ' +
-        // '50.437435,80.2570256;  ' +
-        // '45.0194401,78.3799347; ' +
-        // '42.9106775,71.3235513;  ' +
-        // '51.2028133,51.3712568;  ' +
-        // '49.966677,82.4660735;  ' +
-        // '42.341926,69.5197652; ' +
-        // '51.7262068,75.2493935;'
-    ;
-    var parsed = locations.split(';');
-
-    var x = document.getElementById("parser");
-    function getLocation() {
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(showPosition, showError);
-        } else {
-            x.innerHTML = "Geolocation is not supported by this browser.";
-        }
-    }
-
-    function showPosition(position) {
-        var lat = position.coords.latitude;
-        var lon = position.coords.longitude;
-        var latlon = new google.maps.LatLng(lat, lon);
-        var mapholder = document.getElementById('rep-map');
-        // mapholder.style.height = '250px';
-        // mapholder.style.width = '500px';
-
-        var myOptions = {
-            center:latlon,zoom:10,
-            mapTypeId:google.maps.MapTypeId.ROADMAP,
-            mapTypeControl:false,
-            navigationControlOptions:{style:google.maps.NavigationControlStyle.SMALL}
-        };
-
-
-
-
-
-        var map = new google.maps.Map(document.getElementById("rep-map"), myOptions);
-
-
-        var marker, i;
-
-        for (i = 0; i < parsed.length; i++) {
-            var cord = parsed[i].split(',');
-            var x = parseFloat(cord[0]);
-            var y = parseFloat(cord[1]);
-            marker = new google.maps.Marker({
-                position: new google.maps.LatLng(x,y),
-                map: map
-            });
-        }
-    }
-
-    function defaultMap(){
-        var mapCanvas = document.getElementById("rep-map");
-        var mapOptions = {
-            center: new google.maps.LatLng(55.8860981,37.4910093), zoom: 10
-        };
-        var map = new google.maps.Map(mapCanvas, mapOptions);
-
-        var marker, i;
-
-        for (i = 0; i < parsed.length; i++) {
-            var cord = parsed[i].split(',');
-            var x = parseFloat(cord[0]);
-            var y = parseFloat(cord[1]);
-            marker = new google.maps.Marker({
-                position: new google.maps.LatLng(x,y),
-                map: map
-            });
-        }
-    }
-
-    function showError(error) {
-        switch(error.code) {
-            case error.PERMISSION_DENIED:
-                defaultMap();
-                break;
-            case error.POSITION_UNAVAILABLE:
-                defaultMap();
-                break;
-            case error.TIMEOUT:
-                defaultMap();
-                break;
-            case error.UNKNOWN_ERROR:
-                x.innerHTML = "An unknown error occurred.";
-                break;
-        }
-    }
-
-
-
-
-
-</script>
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        getLocation();
-    });
-</script>
+<!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCaR8iUcp_WPtwaK3gAxcYlztwA9cn6mSQ"></script>-->
+<!---->
+<!--<script>-->
+<!--    var locations =-->
+<!--        '53.7120123,91.3855439;' +  //abakan-->
+<!--        '64.4845156,40.7415823;' +  //archang-->
+<!--        '46.3151207,48.0223989;' +  //astrax-->
+<!--        '53.3339242,83.6669341;' +  //barnaul-->
+<!--        '50.5939402,36.6296759;' +  //belgorod-->
+<!--        '52.5418095,85.1329787;' +  //biisk-->
+<!--        '48.7979108,132.9050267;' + //birobizh-->
+<!--        '50.2768427,127.5130564;' + //blagoveshensk-->
+<!--        '56.1459059,101.5962452;' + //biisk-->
+<!--        '53.2397811,34.3281457;' +  //bryansk-->
+<!--        '58.5415436,31.2687166;' +  //novgorod vel-->
+<!--        '43.1448007,131.9640533;' + //vladivostok-->
+<!--        '43.0346948,44.6917682;' +  //vladikavkaz-->
+<!--        '56.1542355,40.4252689;' +  //vladimir-->
+<!--        '48.6863036,44.4760708;' +  //volgograd-->
+<!--        '47.4880741,42.1665217;' +  //volgodonsk-->
+<!--        '48.8219714,44.7359535;' +  //volzchskiy-->
+<!--        '59.2209898,39.9486805;' +  //vologda-->
+<!--        '51.6803851,39.0762222;' +  //voronezh-->
+<!--        '60.7065715,28.7481739;' +  //viborg-->
+<!--        '51.9499947,85.9498581;' +  //gorno-altaysk-->
+<!--        '56.1621856,43.9065586;' +  //druzhnyi-->
+<!--        '55.3974741,39.045325;' +   //egoryevsk-->
+<!--        '56.8885867,60.5241517;' +  //eburg-->
+<!--        '49.6596216,117.3388895;' + //zabaykalsk-->
+<!--        '54.5864534,55.9093387;' +  //zubovo-->
+<!--        '56.9495372,40.9570423;' +  //ignatovo-->
+<!--        '56.8173054,53.1972115;' +  //izhevsk-->
+<!--        '52.2960711,104.3056148;' + //irkutsk-->
+<!--        '56.6204123,47.8760528;' +  //yoshkar-->
+<!--        '55.8460398,49.053604;' +   //kazan'-->
+<!--        '54.5589276,36.2647197;' +  //kaluga-->
+<!--        '55.3089029,86.1396922;' +  //kemerovo-->
+<!--        '58.63814,49.592725;' +     //Kirov-->
+<!--        '56.332135,36.725357;' +    //Klin-->
+<!--        '50.5455355,137.0377878;' + //komsomolsk-na-amure-->
+<!--        '57.7767147,40.977638;' +   //kostroma-->
+<!--        '45.1084426,39.011065;' +   //krasnod-->
+<!--        '56.0400344,93.0273272;' +  //krasnoyarsk-->
+<!--        '51.7240762,36.1866641;' +  //kursk-->
+<!--        '51.7033678,94.4884927;' +  //kizil-->
+<!--        '52.6257419,39.5386167;' +  //lipetsk-->
+<!--        '53.3975234,59.0227893;' +  //magnitogorsk-->
+<!--        '55.6449246,49.2792354; ' + //malye kabany-->
+<!--        '42.9953044,47.4533128; ' + //mahachkala-->
+<!--        '55.886087,37.4930761;' +   //msk-->
+<!--        '55.7395649,37.7462873;' +  //msk-->
+<!--        '55.7044559,37.423814;' +   //msk-->
+<!--        '55.6338133,37.6304819;' +  //msk-->
+<!--        '55.8904723,37.5783269;' +  //msk-->
+<!--        '69.0075298,33.0796947;' +  //murmansk-->
+<!--        '55.710778,52.4594326;' +   //chelny-->
+<!--        '43.476944,43.6006728; ' +  //nalchik-->
+<!--        '42.8406748,132.8840014; ' +//nahodka-->
+<!--        '56.6697932,124.6909036; ' +//nerungri-->
+<!--        '60.9396722,76.5426795; ' + //nizhnevartovks-->
+<!--        '56.2940845,43.8852721; ' + //nizhnovgorod-->
+<!--        '57.9248678,59.9925283; ' + //tagiiiil-->
+<!--        '53.7365757,87.1592691; ' + //novokuzhetsk-->
+<!--        '44.7252512,37.7449539;  ' +//novoross-->
+<!--        '55.0584505,82.9659023; ' + //novosib-->
+<!--        '55.0056455,82.8773476;  ' +//novosib-->
+<!--        '66.1250124,76.6835163;  ' +//n.urengoy-->
+<!--        '55.848192,38.4255008; ' +  //noginsk-->
+<!--        '69.4016527,88.1780282;' +  //norilsk ------------------------- ??-->
+<!--        '63.2032334,75.4979684; ' + //noyabrsk-->
+<!--        '45.1779346,39.0978547; ' + //oktyabrskiy-->
+<!--        '55.006393,73.3812933;  ' + //omsk-->
+<!--        '53.0031497,36.1440106; ' + //orel-->
+<!--        '51.8550195,55.1267697; ' + //orenburg-->
+<!--        '51.2280249,58.5063495;  ' +//orsk-->
+<!--        '53.1219824,45.0008511;  ' +//penza-->
+<!--        '57.9560029,56.2463343;   ' +//perm'-->
+<!--        '61.8126985,34.3152922; ' +  //petrozavosdsk-->
+<!--        '53.0806364,158.6173781; ' + //petropavlovsk-kamch-->
+<!--        '57.8097648,28.3616457; ' +  //pskov-->
+<!--        '44.042953,43.0164321;' +    //pyatigorsk-->
+<!--        '47.2705564,39.7749988; ' +  //rostov-->
+<!--        '47.240245,39.5995435; ' +   //rostov-->
+<!--        '51.5007962,81.1897406; ' +  //rubcovsk-->
+<!--        '58.0322217,38.8189747; ' +  //rybinsk-->
+<!--        '54.6506672,39.6783199;' +  //ryazan'-->
+<!--        '53.3192268,50.2964027; ' +  //samara-->
+<!--        '60.0590283,30.3641567; ' +  //piter-->
+<!--        '59.8454183,30.4825098; ' +  //piter-->
+<!--        '54.2306997,45.1609776; ' +  //saransk-->
+<!--        '51.6019062,45.94192;  ' +   //saransk-->
+<!--        '64.5374947,39.8071603; ' + //severodvinsk-->
+<!--        '56.6561022,84.8204306; ' + //seversk-->
+<!--        '54.9390494,37.4000967;  ' + //serpuchov-->
+<!--        '54.7947744,32.0579357;  ' + //smolensk-->
+<!--        '43.6087483,39.7410879;  ' + //sochi-->
+<!--        '45.0531057,42.0195337; ' +  //stavropol-->
+<!--        '51.3236283,37.8827978;' +  //staryi oskol-->
+<!--        '53.6406948,55.9581627;  ' +//sterlitamak-->
+<!--        '61.2752434,73.3551303; ' + //surgut-->
+<!--        '61.662403,50.8727613; ' +  //syktyvkar-->
+<!--        '52.6845151,41.4599036; ' + //tambov-->
+<!--        '56.8305552,35.9120077; ' + //tver'-->
+<!--        '53.4812621,49.4862208;  ' +//tolyatti-->
+<!--        '56.5201523,85.0203629;' +  //tomsk-->
+<!--        '54.1839764,37.5158962;' +  //tula-->
+<!--        '57.1309424,65.6034875;' +  //tumen'-->
+<!--        '51.8387344,107.644425; ' + //ulanude-->
+<!--        '54.3297685,48.3605915; ' + //ulyanovsk-->
+<!--        '43.7934325,131.9629973; ' + //ussuriisk-->
+<!--        '63.5425142,53.7544621; ' + //uxta-->
+<!--        '48.4865845,135.115533; ' + //xabarovsk-->
+<!--        '61.0028606,69.0169291; ' + //xanty-mansy-->
+<!--        '60.9703647,69.0268561;  ' +//hantymansiysk-->
+<!--        '55.1207638,61.507935;' +  //chelyab-->
+<!--        '55.2422931,61.413975; ' + //chelyab-->
+<!--        '59.1308595,37.9601103; ' +//cherepovets-->
+<!--        '52.0499816,113.4469828; ' +//chita-->
+<!--        '47.7123186,40.2317344; ' + //shackhty-->
+<!--        '46.3116302,44.2935603; ' + //elista-->
+<!--        '47.0022178,142.7325237; ' + //yuzhno-sakhalinsk-->
+<!--        '62.0425469,129.7216466;' + //yakutsk-->
+<!--        '57.5627914,39.944268;' //yaroslavl-->
+<!--        // '40.1510653,43.7632018; ' + //tairov -----------------??-->
+<!--        // '52.1295144,23.7781819;  ' + //brest-->
+<!--        // '55.2007231,30.2496646; ' + //vitebsk-->
+<!--        // '52.4642502,30.9961848;' + //gomel-->
+<!--        // '53.9200208,27.702755; ' + //minsk-->
+<!--        // '53.8490291,30.3794928;  ' +//mogilev-->
+<!--        // '53.8479229,22.8633301; ' + //chehovshina-->
+<!--        // '42.8549995,74.6638036;  ' +//bishkek-->
+<!--        // '51.1848401,71.312866; ' + //astana-->
+<!--        // '47.0968448,51.8967667; ' +-->
+<!--        // '43.4903615,77.0041818;  ' +-->
+<!--        // '46.8500171,74.9013066; ' +-->
+<!--        // '47.8081747,67.7210162; ' +-->
+<!--        // '53.2739745,69.393956; ' +-->
+<!--        // '53.2087811,63.5929897; ' +-->
+<!--        // '44.8303344,65.5332483;  ' +-->
+<!--        // '52.2829048,76.9361656;  ' +-->
+<!--        // '54.8739717,69.0904084; ' +-->
+<!--        // '50.437435,80.2570256;  ' +-->
+<!--        // '45.0194401,78.3799347; ' +-->
+<!--        // '42.9106775,71.3235513;  ' +-->
+<!--        // '51.2028133,51.3712568;  ' +-->
+<!--        // '49.966677,82.4660735;  ' +-->
+<!--        // '42.341926,69.5197652; ' +-->
+<!--        // '51.7262068,75.2493935;'-->
+<!--    ;-->
+<!--    var parsed = locations.split(';');-->
+<!---->
+<!--    var x = document.getElementById("parser");-->
+<!--    function getLocation() {-->
+<!--        if (navigator.geolocation) {-->
+<!--            navigator.geolocation.getCurrentPosition(showPosition, showError);-->
+<!--        } else {-->
+<!--            x.innerHTML = "Geolocation is not supported by this browser.";-->
+<!--        }-->
+<!--    }-->
+<!---->
+<!--    function showPosition(position) {-->
+<!--        var lat = position.coords.latitude;-->
+<!--        var lon = position.coords.longitude;-->
+<!--        var latlon = new google.maps.LatLng(lat, lon);-->
+<!--        var mapholder = document.getElementById('rep-map');-->
+<!--        // mapholder.style.height = '250px';-->
+<!--        // mapholder.style.width = '500px';-->
+<!---->
+<!--        var myOptions = {-->
+<!--            center:latlon,zoom:10,-->
+<!--            mapTypeId:google.maps.MapTypeId.ROADMAP,-->
+<!--            mapTypeControl:false,-->
+<!--            navigationControlOptions:{style:google.maps.NavigationControlStyle.SMALL}-->
+<!--        };-->
+<!---->
+<!---->
+<!---->
+<!---->
+<!---->
+<!--        var map = new google.maps.Map(document.getElementById("rep-map"), myOptions);-->
+<!---->
+<!---->
+<!--        var marker, i;-->
+<!---->
+<!--        for (i = 0; i < parsed.length; i++) {-->
+<!--            var cord = parsed[i].split(',');-->
+<!--            var x = parseFloat(cord[0]);-->
+<!--            var y = parseFloat(cord[1]);-->
+<!--            marker = new google.maps.Marker({-->
+<!--                position: new google.maps.LatLng(x,y),-->
+<!--                map: map-->
+<!--            });-->
+<!--        }-->
+<!--    }-->
+<!---->
+<!--    function defaultMap(){-->
+<!--        var mapCanvas = document.getElementById("rep-map");-->
+<!--        var mapOptions = {-->
+<!--            center: new google.maps.LatLng(55.8860981,37.4910093), zoom: 10-->
+<!--        };-->
+<!--        var map = new google.maps.Map(mapCanvas, mapOptions);-->
+<!---->
+<!--        var marker, i;-->
+<!---->
+<!--        for (i = 0; i < parsed.length; i++) {-->
+<!--            var cord = parsed[i].split(',');-->
+<!--            var x = parseFloat(cord[0]);-->
+<!--            var y = parseFloat(cord[1]);-->
+<!--            marker = new google.maps.Marker({-->
+<!--                position: new google.maps.LatLng(x,y),-->
+<!--                map: map-->
+<!--            });-->
+<!--        }-->
+<!--    }-->
+<!---->
+<!--    function showError(error) {-->
+<!--        switch(error.code) {-->
+<!--            case error.PERMISSION_DENIED:-->
+<!--                defaultMap();-->
+<!--                break;-->
+<!--            case error.POSITION_UNAVAILABLE:-->
+<!--                defaultMap();-->
+<!--                break;-->
+<!--            case error.TIMEOUT:-->
+<!--                defaultMap();-->
+<!--                break;-->
+<!--            case error.UNKNOWN_ERROR:-->
+<!--                x.innerHTML = "An unknown error occurred.";-->
+<!--                break;-->
+<!--        }-->
+<!--    }-->
+<!---->
+<!---->
+<!---->
+<!---->
+<!---->
+<!--</script>-->
+<!--<script>-->
+<!--    document.addEventListener("DOMContentLoaded", function() {-->
+<!--        getLocation();-->
+<!--    });-->
+<!--</script>-->
 
