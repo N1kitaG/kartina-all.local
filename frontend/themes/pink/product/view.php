@@ -139,7 +139,9 @@ $alt = ($model->meta_h1) ? $model->meta_h1 : $this->title;
                             <?php endif;?>
                         <?php endif;?>
                     <?php endif;?>
-                    <p class="discount">-<?=Yii::$app->params['discount']?><span>%</span></p>
+                    <?php if($model->discount):?>
+                        <p class="discount">-<?=$model->discount?><span>%</span></p>
+                    <?php endif; ?>
                 </div>
             </div>
             <div class="product-desc">
@@ -165,7 +167,7 @@ $alt = ($model->meta_h1) ? $model->meta_h1 : $this->title;
                     </div>
                     <div class="price" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
                         <div class="price-current-title">Цена без акции завтра:</div>
-                        <div class="price-current"><?= number_format($model->getOldPrice(), 0, '', ' ');?> <span><?=Yii::$app->params['currency']?></span></div>
+                        <div class="price-current"><?= number_format($model->price_old, 0, '', ' ');?> <span><?=Yii::$app->params['currency']?></span></div>
                         <hr class="dotted">
                         <div class="price-old-title">Цена по акции сегодня:</div>
                         <div class="price-old" itemprop="price" content="<?= number_format($model->price, 0, '', ' ');?>"><?= number_format($model->price, 0, '', ' ');?> <span><?=Yii::$app->params['currency']?></span><meta itemprop="priceCurrency" content="RUB"></div>
@@ -217,6 +219,7 @@ $alt = ($model->meta_h1) ? $model->meta_h1 : $this->title;
         </div>
     <?php endif;?>
     <div class="callback-form">
+        <?php if(!$send): ?>
         <h3>Оставить отзыв</h3>
         <?= Html::beginForm('', 'post'); ?>
             <?= Html::textInput('name', '', ['required' => true, 'placeholder' => 'Введите ваше имя']); ?>
@@ -224,6 +227,9 @@ $alt = ($model->meta_h1) ? $model->meta_h1 : $this->title;
             <?= Html::textarea('message', '', ['required' => true, 'placeholder' => 'Ваш комментарий']); ?>
             <?= Html::submitButton('Отправить'); ?>
         <?= Html::endForm(); ?>
+        <?php else: ?>
+            <h3>Ваш комментарий проходит на модерацию. Спасибо за внимание!</h3>
+        <?php endif; ?>
     </div>
     <div class="item-page-row clearfix">
         <div class="block-border fl">

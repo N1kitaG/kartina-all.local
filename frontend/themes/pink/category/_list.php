@@ -15,9 +15,11 @@ $alt = ($model->meta_h1) ? $model->meta_h1 : $this->title;
 
 ?>
 <?php if (Yii::$app->user->can('admin')): ?>
-    <a target="_blank" href="/admin/product/update?id=<?php echo $model->id;?>">Редактировать</a>
+    <a target="_blank" href="/admin/product/update?id=<?= $model->id ?>">Редактировать</a>
 <?php endif;?>
-<div class="item-discount">-<?= Yii::$app->params['discount'] ?><span>%</span></div>
+<?php if($model->discount):?>
+    <div class="item-discount">-<?= $model->discount ?><span>%</span></div>
+<?php endif; ?>
 <div class="item-image">
     <?php if (empty($model->image)): ?>
         <?php
@@ -50,7 +52,7 @@ $alt = ($model->meta_h1) ? $model->meta_h1 : $this->title;
             href="<?= Url::to(['/product/view', 'category' => $this->params['category'], 'slug' => $model->slug]); ?>"><?= $model->title; ?></a>
 </div>
 <div class="price">
-    <span class="price-old"><?= number_format($model->getOldPrice(), 0, '', ' '); ?><span><?= Yii::$app->params['currency'] ?></span></span>
+    <span class="price-old"><?= number_format($model->price_old, 0, '', ' '); ?><span><?= Yii::$app->params['currency'] ?></span></span>
     <span class="price-cur"><?= number_format($model->price, 0, '', ' '); ?><span><?= Yii::$app->params['currency'] ?></span></span>
 </div>
 <div class="action_count" style="font-size: 18px; font-weight: bold;">

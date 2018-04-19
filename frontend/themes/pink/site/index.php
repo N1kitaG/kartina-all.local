@@ -107,6 +107,10 @@ if ($currentPage>0) {
                         $img = '/img2/446/1467.jpg';
                         $url = Url::to(['/category/seoview', 'slug' => 'modulnye-kartiny/' . $show_category->slug]);
                         break;
+                    case 511:
+                        $img = '/img2/skret-v-kosmose.png';
+                        $url = Url::to(['/category/seoview', 'slug' => $show_category->slug]);
+                        break;
                     case 512:
                         $img = '/img2/vertical.jpg';
                         $url = Url::to(['/category/seoview', 'slug' => $show_category->slug]);
@@ -300,28 +304,28 @@ if ($currentPage>0) {
                     <div class="widget_memb-list_w">
                         <ul class="widget_memb-list">
                             <li class="widget_member">
-                                <a class="widget_member_img-w" href="http://ok.ru/profile/97001017?st._aid=ExternalGroupWidget_OpenProfile" target="_blank"><div class="memb1"></div></a>
+                                <a class="widget_member_img-w" href="https://ok.ru/profile/97001017?st._aid=ExternalGroupWidget_OpenProfile" target="_blank"><div class="memb1"></div></a>
                             </li>
                             <li class="widget_member">
-                                <a class="widget_member_img-w" href="http://ok.ru/profile/100930025?st._aid=ExternalGroupWidget_OpenProfile" target="_blank"><div class="memb2"></div></a>
+                                <a class="widget_member_img-w" href="https://ok.ru/profile/100930025?st._aid=ExternalGroupWidget_OpenProfile" target="_blank"><div class="memb2"></div></a>
                             </li>
                             <li class="widget_member">
-                                <a class="widget_member_img-w" href="http://ok.ru/profile/117811857?st._aid=ExternalGroupWidget_OpenProfile" target="_blank"><div class="memb3"></div></a>
+                                <a class="widget_member_img-w" href="https://ok.ru/profile/117811857?st._aid=ExternalGroupWidget_OpenProfile" target="_blank"><div class="memb3"></div></a>
                             </li>
                             <li class="widget_member">
-                                <a class="widget_member_img-w" href="http://ok.ru/profile/119046655?st._aid=ExternalGroupWidget_OpenProfile" target="_blank"><div class="memb4"></div></a>
+                                <a class="widget_member_img-w" href="https://ok.ru/profile/119046655?st._aid=ExternalGroupWidget_OpenProfile" target="_blank"><div class="memb4"></div></a>
                             </li>
                             <li class="widget_member">
-                                <a class="widget_member_img-w" href="http://ok.ru/profile/121375116?st._aid=ExternalGroupWidget_OpenProfile" target="_blank"><div class="memb5"></div></a>
+                                <a class="widget_member_img-w" href="https://ok.ru/profile/121375116?st._aid=ExternalGroupWidget_OpenProfile" target="_blank"><div class="memb5"></div></a>
                             </li>
                             <li class="widget_member">
-                                <a class="widget_member_img-w" href="http://ok.ru/profile/124373366?st._aid=ExternalGroupWidget_OpenProfile" target="_blank"><div class="memb6"></div></a>
+                                <a class="widget_member_img-w" href="https://ok.ru/profile/124373366?st._aid=ExternalGroupWidget_OpenProfile" target="_blank"><div class="memb6"></div></a>
                             </li>
                             <li class="widget_member">
-                                <a class="widget_member_img-w" href="http://ok.ru/profile/131460913?st._aid=ExternalGroupWidget_OpenProfile" target="_blank"><div class="memb7"></div></a>
+                                <a class="widget_member_img-w" href="https://ok.ru/profile/131460913?st._aid=ExternalGroupWidget_OpenProfile" target="_blank"><div class="memb7"></div></a>
                             </li>
                             <li class="widget_member">
-                                <a class="widget_member_img-w" href="http://ok.ru/profile/136058128?st._aid=ExternalGroupWidget_OpenProfile" target="_blank"><div class="memb8"></div></a>
+                                <a class="widget_member_img-w" href="https://ok.ru/profile/136058128?st._aid=ExternalGroupWidget_OpenProfile" target="_blank"><div class="memb8"></div></a>
                             </li>
                         </ul>
                     </div>
@@ -329,7 +333,7 @@ if ($currentPage>0) {
                         <span class="widget_count">В группе уже 12&nbsp;306 участников</span>
                     </div>
                     <div class="widget_soc-link_w">
-                        <a class="widget_soc-link" href="http://apiok.ru/wiki/pages/viewpage.action?pageId=42476655" target="_blank">Получить виджет</a>
+                        <a class="widget_soc-link" href="https://apiok.ru/wiki/pages/viewpage.action?pageId=42476655" target="_blank">Получить виджет</a>
                     </div>
                 </div>
             </div>
@@ -339,7 +343,7 @@ if ($currentPage>0) {
         <div>
             <div class="in">
                 <div class="widget">
-                    <a href="http://instagram.com/kartina_rus" target="_blank" class="title">
+                    <a href="https://instagram.com/kartina_rus" target="_blank" class="title">
                         <div class="inst_logo icon"></div>
                         <div class="text">Мы в Instagram:</div>
                         <div class="clear">&nbsp;</div>
@@ -349,7 +353,7 @@ if ($currentPage>0) {
                         <tbody>
                         <tr>
                             <td rowspan="2" class="avatar">
-                                <a href="http://instagram.com/kartina_rus" target="_blank">
+                                <a href="https://instagram.com/kartina_rus" target="_blank">
                                     <div class="ava_logo"></div>
                                 </a>
                             </td>
@@ -368,7 +372,7 @@ if ($currentPage>0) {
                         </tr>
                         <tr>
                             <td colspan="3" style="border-right:none !important;">
-                                <a href="http://instagram.com/kartina_rus" class="follow" target="_blank">Посмотреть ></a>
+                                <a href="https://instagram.com/kartina_rus" class="follow" target="_blank">Посмотреть ></a>
                             </td>
                         </tr>
                         </tbody>

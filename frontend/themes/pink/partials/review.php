@@ -53,10 +53,10 @@
 
 <div>
     <div class="quote-block" style="width: 255px;margin-bottom: 25px;    font: 700 13px 'Trebuchet MS',Helvetica,sans-serif;;"><br>
-        <a href="http://vk.com/topic-75729351_30756192" target="blank" style="text-decoration: none;border:none; font: 700 15px 'Roboto Slab',Arial,Helvetica,sans-serif;">
+        <a href="https://vk.com/topic-75729351_30756192" target="blank" style="text-decoration: none;border:none; font: 700 15px 'Roboto Slab',Arial,Helvetica,sans-serif;">
             <strong class="title" style="border:none; margin-bottom: 10px;display: block;color:#000;">Реальные отзывы из VK с фото:</strong>
         </a>
-        <a href="http://vk.com/topic-75729351_30756192" class="reviewvk" target="blank">
+        <a href="https://vk.com/topic-75729351_30756192" class="reviewvk" target="blank">
             <div class="rvk-heading">
                 <img src="https://pp.vk.me/c621930/v621930621/34bd4/lU-zukQSTbM.jpg" alt="Отзывы о сайте Kartina-rus.ru" />Отзывы о сайте Kartina-rus.ru
             </div>
@@ -149,11 +149,11 @@
 </div>
 <br>
 <div>
-    <div id="ok_group_widget"></div>
+    <!--<div id="ok_group_widget"></div>
     <script>
         !function (d, id, did, st) {
             var js = d.createElement("script");
-            js.src = "http://connect.ok.ru/connect.js";
+            js.src = "https://connect.ok.ru/connect.js";
             js.onload = js.onreadystatechange = function () {
                 if (!this.readyState || this.readyState == "loaded" || this.readyState == "complete") {
                     if (!this.executed) {
@@ -166,13 +166,13 @@
             }
             d.documentElement.appendChild(js);
         }(document, "ok_group_widget", "52843208114355", "{width:255,height:280}");
-    </script>
+    </script>-->
 </div>
 <br>
 <div>
     <div class="in">
         <div class="widget">
-            <a href="http://instagram.com/kartina_rus" target="_blank" class="title">
+            <a href="https://instagram.com/kartina_rus" target="_blank" class="title">
                 <div class="inst_logo icon"></div>
                 <div class="text">Мы в Instagram:</div>
                 <div class="clear">&nbsp;</div>
@@ -182,7 +182,7 @@
                 <tbody>
                 <tr>
                     <td rowspan="2" class="avatar">
-                        <a href="http://instagram.com/kartina_rus" target="_blank">
+                        <a href="https://instagram.com/kartina_rus" target="_blank">
                             <div class="ava_logo"></div>
                         </a>
                     </td>
@@ -201,7 +201,7 @@
                 </tr>
                 <tr>
                     <td colspan="3" style="border-right:none !important;">
-                        <a href="http://instagram.com/kartina_rus" class="follow" target="_blank">Посмотреть ></a>
+                        <a href="https://instagram.com/kartina_rus" class="follow" target="_blank">Посмотреть ></a>
                     </td>
                 </tr>
                 </tbody>
