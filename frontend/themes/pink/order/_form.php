@@ -20,7 +20,7 @@ $order_model = new Order();
         <p class="title"></p>
         <div class="order-image-block">
             <div class="order-img"></div>
-            <div class="discount">-<?=Yii::$app->params['discount']?><span>%</span></div>
+            <div class="discount">-<span id="discount"></span><span>%</span></div>
         </div>
         <div class="description">
             <p class="price">Цена сейчас:</p>

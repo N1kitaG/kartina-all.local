@@ -105,7 +105,9 @@ if ($currentPage>0) {
 <h1 id="tovar"><?=$h1?></h1>
 <p>Сортировать по:</p>
 <?= Html::beginForm(); ?>
-<?= Html::radioList('sort', $sort, ['order' => 'Рейтингу', 'price' => 'Цене'], ['class' => 'order-change']); ?>
+<div class="radiostyle">
+    <?= Html::radioList('sort', $sort, ['order' => 'Рейтингу', 'price' => 'Цене'], ['class' => 'order-change']); ?>
+</div>
 <?= Html::endForm(); ?>
 <div class="category-excerpt">
     <?=$model->excerpt; ?>

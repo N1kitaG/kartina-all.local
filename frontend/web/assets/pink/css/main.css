@@ -2085,7 +2085,7 @@ div.mejs-speed-button {
     position: relative;
     width: 293px;
     margin-right: 20px;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
 }
 
 .category-item {
@@ -2093,18 +2093,26 @@ div.mejs-speed-button {
 }
 
 .category-item a {
+    display: block;
     text-decoration: none;
-
+    position: relative;
+    height: 100%;
 }
 
 .category-item a span {
-    line-height: 30px;
-    text-decoration: underline;
-    color: #1e1f4f;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.46);
+    position: absolute;
+    bottom: 0;
+    padding: 10px 0;
+    /*text-decoration: underline;*/
+    color: #f9f9f9;
     font-weight: bold;
     white-space: nowrap;
-    font-size: 15px;
+    font-size: 1.5rem;
     display: block;
+    font-family: 'Roboto Slab', serif;
+    text-shadow: 0 0 5px #984b99;
     text-align: center;
 }
 
@@ -2147,6 +2155,7 @@ div.mejs-speed-button {
 
 .catalog-item .item-title a {
     text-decoration: underline;
+    font-size: 1.4rem;
     color: #1e1f4f;
     font-weight: bold;
     white-space: nowrap;
@@ -6209,7 +6218,7 @@ div.about-slider a img{
     position: relative;
     width: 48.4375%;
     margin-right: 3.125%;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
 }
 
 .category-item img,
@@ -6227,6 +6236,7 @@ div.about-slider a img{
 .catalog-item:nth-child(2n) {
     margin-right: 0;
 }
+
 /*2 колонки*/
 
 .category-excerpt ul{
@@ -6681,6 +6691,43 @@ div.about-slider a img{
     margin-bottom: 10px;
 }
 
+.radiostyle{
+    position: relative;
+    height: 50px;
+    padding: 0 0 10px 0;
+}
+
+.radiostyle .order-change{
+    display: flex;
+    flex-direction: row;
+}
+
+.radiostyle input{
+    position: absolute;
+    visibility: hidden;
+}
+
+.radiostyle label{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    background: #ed479d;
+    color: #ffffff;
+    font-size: 16px;
+    font-family: 'Roboto Slab', serif;
+    font-weight: bold;
+    transition: all 0.5s;
+    border: none;
+    padding: 10px 20px;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.checked {
+    background: #a33269 !important;
+}
+
 
 
 @media screen and (max-width: 880px) {
@@ -7013,7 +7060,7 @@ div.about-slider a img{
 
 /*Выбор по чему сортировать*/
 .order-change{
-    margin-bottom: 20px;
+    /*margin-bottom: 20px;*/
 }
 
 .promo-popup img{

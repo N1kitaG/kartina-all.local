@@ -480,7 +480,7 @@
 
             ymaps.geocode(pos).then(function (res) {
                 var firstGeoObject = res.geoObjects.get(0);
-                console.log('Ваш город', firstGeoObject.getLocalities()[0], '?');
+                // console.log('Ваш город', firstGeoObject.getLocalities()[0], '?');
             });
 
         });

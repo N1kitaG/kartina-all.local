@@ -50,7 +50,7 @@ $alt = ($model->meta_h1) ? $model->meta_h1 : $this->title;
 </div>
 <div class="item-title"><a href="<?=Url::to(['/product/view','category'=>$category->slug,'slug'=>$model->slug]);?>"><?= $model->title;?></a></div>
 <div class="price">
-    <span class="price-old"><?= number_format($model->price_old, 0, '', ' ');?> <span><?=Yii::$app->params['currency']?></span></span>
+    <span class="price-old"><?= number_format($model->getOldPrice(), 0, '', ' ');?> <span><?=Yii::$app->params['currency']?></span></span>
     <span class="price-cur"><?= number_format($model->price, 0, '', ' ');?> <span><?=Yii::$app->params['currency']?></span></span>
 </div>
 <div class="action_count" style="font-size: 18px; font-weight: bold;">

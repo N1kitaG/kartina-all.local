@@ -167,7 +167,7 @@ $alt = ($model->meta_h1) ? $model->meta_h1 : $this->title;
                     </div>
                     <div class="price" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
                         <div class="price-current-title">Цена без акции завтра:</div>
-                        <div class="price-current"><?= number_format($model->price_old, 0, '', ' ');?> <span><?=Yii::$app->params['currency']?></span></div>
+                        <div class="price-current"><?= number_format($model->getOldPrice(), 0, '', ' ');?> <span><?=Yii::$app->params['currency']?></span></div>
                         <hr class="dotted">
                         <div class="price-old-title">Цена по акции сегодня:</div>
                         <div class="price-old" itemprop="price" content="<?= number_format($model->price, 0, '', ' ');?>"><?= number_format($model->price, 0, '', ' ');?> <span><?=Yii::$app->params['currency']?></span><meta itemprop="priceCurrency" content="RUB"></div>

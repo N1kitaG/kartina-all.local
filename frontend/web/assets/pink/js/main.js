@@ -335,16 +335,7 @@ $('.slider-wrapper').bxSlider({
             return false;
         });
 
-        $(".order-change input[name=sort]").on("change", function () {
-            var url = document.URL;
-            if(url.indexOf("?sort=") !== -1){
-                url = url.replace("?sort=price", '');
-                url = url.replace("?sort=order", '');
-            }
-            var str = url.split("#");
-            url = str[0];
-            window.location.href = url + "?sort=" + $(this).val() + "#tovar";
-        });
+
 
         var top_show = 500;
         var delay = 1000;
@@ -420,6 +411,9 @@ $('.slider-wrapper').bxSlider({
                 $title.html($(this.element).data('title'));
                 $price.html($(this.element).data('price') + ' <span>руб.</span>');
                 $pricet.html($(this.element).data('price-old') + ' <span>руб.</span>');
+                var $discount = $(this.element).data('discount');
+                console.log($discount);
+                $("#discount").html($discount);
 
                 var price_int = parseInt($(this.element).data('size-price-s'));
 
@@ -897,18 +891,6 @@ $('.slider-wrapper').bxSlider({
 })(jQuery);
 
 
-//
-// $(function () {
-//     // alert('asd');
-//     if ($(window).scrollTop() > 200){
-//         $('.header-fixed').addClass('headershow');
-//     } else {
-//         $('.header-fixed').removeClass('headershow');
-//     }
-//
-// });
-
-
 $(window).on('scroll', function () {
     if ($(window).scrollTop() > 200){
         $('.header-fixed').addClass('headershow');
@@ -916,6 +898,34 @@ $(window).on('scroll', function () {
         $('.header-fixed').removeClass('headershow');
     }
 });
+
+$(function () {
+    $(".order-change input[name=sort]").on("change", function () {
+        var url = document.URL;
+        if(url.indexOf("?sort=") !== -1){
+            url = url.replace("?sort=price", '');
+            url = url.replace("?sort=order", '');
+        }
+        var str = url.split("#");
+        url = str[0];
+        window.location.href = url + "?sort=" + $(this).val() + "#tovar";
+    });
+    var rating = $('.order-change label:first-child'),
+        price = $('.order-change label:last-child');
+
+    if ($('.order-change label:first-child > input:checked').length > 0){
+        // console.log('testerchecker');
+        $('.order-change label').removeClass('checked');
+        rating.addClass('checked');
+    } else if ($('.order-change label:last-child > input:checked').length > 0){
+        $('.order-change label').removeClass('checked');
+        price.addClass('checked');
+    }
+});
+
+
+
+
 
 
 
