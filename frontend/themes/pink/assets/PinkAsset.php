@@ -18,10 +18,10 @@ class PinkAsset extends AssetBundle
     //public $basePath = '@webroot/test/bla';
     //public $baseUrl = '@web/test/bla';
     public $css = [
-        'https://fonts.googleapis.com/css?family=Roboto+Slab:100,300,400,700&amp;subset=cyrillic',
+//        'https://fonts.googleapis.com/css?family=Roboto+Slab:100,300,400,700&amp;subset=cyrillic',
         //'css/normalize.min.css',
         'css/jquery.bxslider.css',
-        'css/main.css?v=2',
+        'css/main.css?v=3',
     ];
     public $js = [
         'js/plugins.js?v=2',

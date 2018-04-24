@@ -1216,9 +1216,14 @@ div.mejs-speed-button {
     font-family: 'slick';
     font-weight: normal;
     font-style: normal;
-
     src: url('./fonts/slick.eot');
     src: url('./fonts/slick.eot?#iefix') format('embedded-opentype'), url('./fonts/slick.woff') format('woff'), url('./fonts/slick.ttf') format('truetype'), url('./fonts/slick.svg#slick') format('svg');
+}
+
+@font-face {
+    font-family: 'Roboto Slab';
+    src: url('fonts/Roboto_Slab/RobotoSlab-Bold.ttf') format('truetype');
+    font-weight: normal;
 }
 
 /* Arrows */
